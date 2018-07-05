@@ -10,25 +10,33 @@ include 'layout/sidebarLayout/header.php';
 		<?php include 'layout/sidebarLayout/sideBar.php' ?>
 	<div class="container">
 		<?php //include 'sideBar.php' ?>
-				<div class="card">
+				<div class="card" style="padding:20px;">
 					<h1>MMU TimeTable</h1>
 				<?php
 					if(isset($_SESSION['notification'])){
 				?>
-				<paper-dialog with-backdrop="true" class="syncbox" heading="Notification" transition="paper-dialog-transition-bottom" opened="true">
+				<div class="alert alert-primary" role="alert">
 				<p style="font-family:RobotoDraft,Helvetica,Arial,sans-serif;">
 				<?php echo$_SESSION['notification']; ?>
 				</p>
-				</paper-dialog>
+				</div>
 				<?php
 					unset($_SESSION['notification']);
 					} 
 				?>
-
-				<paper-material elevation="2" class="MainCard" style="width:95%; margin-right:auto; margin-left:auto; margin-bottom:30px;">
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Weekly View</a>
+    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Agenda View</a>
+  </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
 				<?php include 'main_function.php' ?>
-				</paper-material>
-				<?php include 'narrowMain_function.php' ?>
+				</div>
+  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+				<?php include 'narrowMain_function.php' ?></div>
+</div>
 			</div>
 	</div>
 				<div class="modal fade" tabindex="-1" role="dialog" id="copy-to-google-modal">
@@ -60,6 +68,9 @@ include 'layout/sidebarLayout/header.php';
 														<option value="30">30</option>
 													</select>
 													Minutes
+							<br />
+							<br />
+							*Becareful if you have already add classes. It will duplicate if you did
 							<br />
 							*if None or Default, ignore the minutes
 							<br />

@@ -13,7 +13,7 @@ if(isset($_SESSION['error'])){
 	$_SESSION['error']="";
 }
 	$timetable = json_decode($_SESSION['timetable'],true);
-	echo "<table style='border:solid; border-width:1px; border-collapse:collapse; margin:0;'><tr><td style='border:solid; border-width:1px;'></td><td style='border:solid; border-width:1px;'>Monday</td><td style='border:solid; border-width:1px;'>Tuesday</td><td style='border:solid; border-width:1px;'>Wednesday</td><td style='border:solid; border-width:1px;'>Thrsday</td><td style='border:solid; border-width:1px;'>Friday</td></tr>";
+	echo "<div class=\"table-responsive\"><table class=\"table table-striped\"><tr><td scope=\"col\"></td><td scope=\"col\">Monday</td><td scope=\"col\">Tuesday</td><td scope=\"col\">Wednesday</td><td scope=\"col\">Thrsday</td><td scope=\"col\">Friday</td></tr>";
 	$i3 = 8; //3 counter for time table output//
 	$skip = 0;
 	$hour;
@@ -28,7 +28,7 @@ if(isset($_SESSION['error'])){
 		}
 
 		$skip = 1;
-		echo "<tr style='height:50px;'><td style='border-top-style:solid; border-width:1px; text-align:center; width:10%;'>";
+		echo "<tr><td scope=\"row\">";
 		$i3a = $i3 + 1;
 		$time = new time_c();
 		$hour = $time->hour_c($i3);
@@ -79,9 +79,9 @@ if(isset($_SESSION['error'])){
 			 	if(isset($rowskip[$i3][$a] ) && $rowskip[$i3][$a] == 1){
 			 		continue;
 			 	}else if (empty($timetable[$b][$i3]['subject'])){
-					echo "<td style='border:solid; border-width:0 1px; width:18%;'></td>";
+					echo "<td></td>";
 				}else if( ( empty($timetable[$b][$i3-1]['subject'])) || ( $timetable[$b][$i3-1]['code'] != $timetable[$b][$i3]['code'])){ 
-					echo "<td rowspan='".$timetable[$b][$i3]['lenght']."' style='background-color:#a6baff; border:solid; border-width:1px; text-align:center; width:18%;'>";
+					echo "<td rowspan='".$timetable[$b][$i3]['lenght']."' style='background-color:#53585C; color:white; border:solid; border-width:1px; text-align:center; width:18%;'>";
 					echo "Subject : " .$timetable[$b][$i3]['code'] ." - ". $timetable[$b][$i3]['subject'] . "<br />";
 					echo "Class : " . $timetable[$b][$i3]['room'] . " [" . $timetable[$b][$i3]['session'] . "]";
 					echo "</td>";
@@ -96,6 +96,6 @@ if(isset($_SESSION['error'])){
 	$i3++;
 	}
 	unset($time);
-echo "</table>";
+echo "</table></div>";
 $_SESSION['timetable'] = json_encode($timetable);
 ?>

@@ -1,4 +1,8 @@
 <?php
+	require __DIR__ . '/vendor/autoload.php';
+	$dotenv = new Symfony\Component\Dotenv\Dotenv();
+	$dotenv->load(__DIR__.'/.env');
+
 	ini_set('display_errors', 1);
 	session_start();
 	$_SESSION['method'] = $_POST['method'];
@@ -35,7 +39,7 @@
 
 
 	$scope = "https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcalendar";
-	$redirect = "http://mmutt.sle4ever.com/google_sycn.php";
+	$redirect = "https://mmutt.sle4ever.com/google_sycn.php";
 	$client_id= getenv("GOOGLE_CLIENT_ID"); 
 
 	header('Location: https://accounts.google.com/o/oauth2/auth?scope='. $scope .'&redirect_uri=' . $redirect. '&response_type=code&client_id='.$client_id.'&approval_prompt=force');

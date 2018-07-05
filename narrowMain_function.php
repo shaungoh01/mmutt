@@ -43,8 +43,8 @@ if(isset($_SESSION['error'])){
 			 	break;	
 			 }
 ?>
-				<paper-material class="narrowMainCard">
-					<h3><?php echo $dayH3; ?></h3>
+				<h3 style="margin:13px 0;"><?php echo $dayH3; ?></h3>
+				<div class="list-group">
 <?php
 					$ctrigger = 0;
 			 	for($c = 8 ; $c<20 ; $c++){
@@ -74,13 +74,20 @@ if(isset($_SESSION['error'])){
 						if(isset($timetable[$b][$c]['minute'])){
 							$minute = "." . $timetable[$b][$c]['minute'];
 						}
-
-			 			echo "<div class='slot'>";
-			 			echo "Subject Code: " .$timetable[$b][$c]['code'] ." <br /> ";
-			 			echo "Subject : ". $timetable[$b][$c]['subject'] . "<br />";
-						echo "Time : " . $hour .$minute. $am . " - " . $hour2 .$minute. $am2 . "<br />";
-						echo "Class : " . $timetable[$b][$c]['room'] . " [" . $timetable[$b][$c]['session'] . "]";
-						echo "</div>";
+						?>
+						<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+							<div class="d-flex w-100 justify-content-between">
+							<h5 class="mb-1"><?php echo $timetable[$b][$c]['subject']; ?></h5>
+							<small class="text-muted"><?php echo $hour .$minute. $am . " - " . $hour2 .$minute. $am2; ?></small>
+							</div>
+							<p class="mb-1">
+								Subject Code <?php echo $timetable[$b][$c]['code'] ?> <br /> 
+								Subject <?php echo $timetable[$b][$c]['subject']; ?><br />
+								Time <?php echo  $hour .$minute. $am . " - " . $hour2 .$minute. $am2; ?><br />
+								Class <?php echo  $timetable[$b][$c]['room'] . " [" . $timetable[$b][$c]['session'] . "]" ?>
+							</p>
+						</a>
+						<?php
 
 						$c+= $lenght -1;
 
@@ -93,7 +100,7 @@ if(isset($_SESSION['error'])){
 			 	}
 			 	
 ?>
-				</paper-material>
+				</div>
 <?php
 		}
 	 
