@@ -5,9 +5,9 @@ if(!isset($_SESSION['timetable'])){
 	exit;
 }
 
-include 'layout/sidebarLayout/header.php'; 
+include __DIR__.'/layout/sidebarLayout/header.php'; 
 ?>
-		<?php include 'layout/sidebarLayout/sideBar.php' ?>
+		<?php include __DIR__.'/layout/sidebarLayout/sidebar.php' ?>
 	<div class="container">
 		<?php //include 'sideBar.php' ?>
 				<div class="card" style="padding:20px;">
@@ -87,4 +87,4 @@ include 'layout/sidebarLayout/header.php';
 					
 					</form>
 				</div>
-<?php include 'layout/sidebarLayout/footer.php'; ?>
+<?php include __DIR__.'/layout/sidebarLayout/footer.php'; ?>

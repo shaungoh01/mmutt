@@ -1,4 +1,4 @@
-<?php include 'layout/header.php'; ?>
+<?php include __DIR__.'/layout/header.php'; ?>
 	<div class="container">
 		<div class="contend">
 			<div style="width:50px; float:left; min-height:50px;"></div>
@@ -19,4 +19,4 @@
 			</div>
 		</div>
 	</div>
-<?php include 'layout/footer.php'; ?>
+<?php include __DIR__.'/layout/footer.php'; ?>

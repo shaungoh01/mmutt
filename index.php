@@ -7,7 +7,7 @@ if (isset($_SESSION['timetable'])){
 }
 
 ?>
-<?php include 'layout/header.php'; ?>
+<?php include __DIR__.'/layout/header.php'; ?>
 <div class="container" style="text-align:center;">
     <div class="card" style="margin-top:20px;">
     <div class="card-body">
@@ -46,4 +46,4 @@ if (isset($_SESSION['timetable'])){
     </div>
 </div>
 
-<?php include 'layout/footer.php'; ?>
+<?php include __DIR__.'/layout/footer.php'; ?>
