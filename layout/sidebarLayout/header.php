@@ -7,7 +7,6 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="/MMUTTLogo.ico" >
     <link href="https://fonts.googleapis.com/css?family=Nunito|Open+Sans|Roboto" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--<link rel="icon" href="../../../../favicon.ico">-->
 
     <title>MMU Timetable</title>
@@ -26,17 +25,31 @@
         font-family: 'Nunito', sans-serif;
         text-shadow: 4px 4px 4px #aaa;
     }
+    #wrapper{
+        padding-top:56px;
+    }
+    #menu-toggle{
+        color:white;
+        margin-right:20px;
+    }
     </style>
     <!-- Custom styles for this template -->
     <link href="/layout/css/sticky-footer-navbar.css" rel="stylesheet">
     <link href="/layout/css/startbootstrap-simple-sidebar.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
 
   <body style="background-color: #f9f9f9;">
 
+    <div id="wrapper" class="toggled">
     <header>
       <!-- Fixed navbar -->
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a href="#" id="menu-toggle" class="nav-item">
+            <i class="material-icons">
+            dehaze
+            </i>
+        </a>
         <img id="logo" src="/MMUTTLogoG.png" height="40" style="float:left;padding-right:10px;">
         <a class="navbar-brand" href="/">MMU TimeTable</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
