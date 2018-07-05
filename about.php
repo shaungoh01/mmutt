@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<?php include 'headerConfig.php' ?>
-	<title>Home</title>
-</head>
-<body style="margin:0;">
-	<?php include 'header.php'?>
+<?php include 'layout/header.php'; ?>
 	<div class="container">
 		<div class="contend">
 			<div style="width:50px; float:left; min-height:50px;"></div>
@@ -24,8 +17,6 @@
 				</ol>			
 				</p>
 			</div>
-		<?php include 'footer.php'?>
 		</div>
 	</div>
-</body>
-</html>
+<?php include 'layout/footer.php'; ?>
