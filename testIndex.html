@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+	<title>Material Index</title>
+	<script src="components/platform/platform.js"></script>
+	<link rel="import" href="components/paper-button/paper-button.html">
+	<link rel="import" href="components/core-toolbar/core-toolbar.html">
+	<link rel="import" href="components/core-drawer-panel/core-drawer-panel.html">
+	<link rel="import" href="components/core-icons/core-icons.html">
+	<link rel="import" href="components/core-menu/core-menu.html">
+	<link rel="import" href="components/paper-item/paper-item.html">
+	<link rel="import" href="components/core-header-panel/core-header-panel.html">
+	<link rel="import" href="components/paper-icon-button/paper-icon-button.html">
+	<link rel="import" href="components/paper-dialog/paper-dialog.html">
+	<link rel="import" href="components/paper-dialog/paper-dialog-transition.html">
+	<link rel="import" href="../components/font-roboto/roboto.html">
+
+	<style type="text/css">
+		core-drawer-panel:not([narrow]) #navicon {
+		  display: none;
+		}
+		core-drawer-panel[narrow] #navicon {
+			float:left;
+		  background-color: #5677fc;
+		}
+		.header{
+			background-color: #5677fc;
+		}
+		core-toolbar .hide{
+			display: none;
+		}
+		core-toolbar.medium-tall .hide{
+			background-color: #d0d9ff;
+			display: block;
+		}
+		core-drawer-panel[narrow] core-toolbar.medium-tall .hide{
+			width:48%;
+			background-color: #d0d9ff;
+			font-size: 0.8em;
+			display: block;
+		}
+		#title{
+			margin:5px;
+			font-family:"RobotoDraft",Helvetica,Arial,sans-serif;
+			background-color: #5677fc;
+			float:left;
+		}
+		core-drawer-panel[narrow] #title{
+			font-size:1.3em;
+		}
+	</style>
+</head>
+<body>
+	<core-drawer-panel>
+		<div drawer flex style="background-color:#e7e9fd;margin:0;">
+		<img src="MMUTTLogoWWordLarge.png" style="width:256px;" alt="Logo">
+		<core-menu style="margin:0;">
+			<paper-item icon="today" label="Calendar"></paper-item>
+			<paper-item paper-dialog-toggle icon="cloud" label="Sync to Google" onclick="document.querySelector('.syncbox').toggle();">
+			</paper-item>
+			<paper-item icon="exit-to-app" label="Sign Out"></paper-item>
+		</core-menu>
+		</div>
+			<core-header-panel main flex mode="waterfall-tall" tallClass="medium-tall">
+				<core-toolbar class="header">
+					<span flex style="height:64px; background-color: #5677fc;" >
+					<paper-icon-button id="navicon" icon="menu" onclick="document.querySelector('core-drawer-panel').togglePanel();"></paper-icon-button>
+					<h1 id="title">MMU TimeTable</h1>
+					</span>
+					<paper-button raised class="bottom hide">Hackerspace</paper-button>
+					<paper-button raised class="bottom hide">SLE4ever.com</paper-button>
+				</core-toolbar>
+				<div style="width:10px; height:1000px;"></div>
+				<paper-dialog backdrop="true" class="syncbox" heading="Google Sync Information" transition="paper-dialog-transition-bottom">
+					<br />
+					<form action="session_create.php" method="post">
+						Reminder by  <select name="method">
+										<option value="Default">Default</option>
+										<option value="popup">Popup</option>
+										<option value="email">Email</option>
+										<option value="None">None</option>
+									</select>: 
+												<select name="minutes">
+													<option value="-1">none</option>
+													<option value="0">0</option>
+													<option value="1">1</option>
+													<option value="5">5</option>
+													<option value="10">10</option>
+													<option value="15">15</option>
+													<option value="20">20</option>
+													<option value="25">25</option>
+													<option value="30">30</option>
+												</select>
+												Minutes
+						<br />
+						*if None or Default, ignore the minutes
+						<br />
+						*Popup is also mean for notification on smartphone
+						<br />
+						<br />
+						<button type="submit" style="background-color: transparent; border:0; border-color: transparent; padding:0;">
+						<paper-button raised type="submit" style="width:100%;">Submit</paper-button>
+						</button>
+					</form>
+				</paper-dialog>
+			</core-header-panel>
+	</core-drawer-panel>
+</body>
+</html>
