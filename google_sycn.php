@@ -10,7 +10,7 @@
 
 	session_start();
 
-	$redirect = "http://mmutt.sle4ever.com/google_sycn.php";
+	$redirect = "https://mmutt.sle4ever.com/google_sycn.php";
 	$client_id= getenv("GOOGLE_CLIENT_ID");
 	$client_secret= getenv("GOOGLE_CLIENT_SECRET");
 	$apikey = getenv("GOOGLE_APIKEY");
